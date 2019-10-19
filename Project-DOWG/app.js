@@ -5,7 +5,8 @@ $(()=>{
         url: "http://api.giphy.com/v1/gifs/search?&api_key=jl0KBxJT91RtqFEeeJapgitK8gMWZDal&q=coffee",
     }).then(
         (data)=>{
-            //data to query goes here
+            data.data[0];
+            console.log(data.data[0])
         },
         (error)=>{
             console.log('Error');
@@ -40,6 +41,7 @@ search query path: /v1/gifs/search
 
 q=coffee
 
+url= api + apiKey + query
 http://api.giphy.com/v1/gifs/search?&api_key=jl0KBxJT91RtqFEeeJapgitK8gMWZDal&q=coffee
 
 ////////////////////////////////////////////////////////////////////
