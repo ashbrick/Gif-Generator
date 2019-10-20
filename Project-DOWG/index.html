@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>GIF Generator</title>
         <script
           src="https://code.jquery.com/jquery-3.4.1.min.js"
           integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -11,28 +11,26 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>GIF GENERATOR</h1>
+        <div class="rainbow-text">
+            <h1>GIF GENERATOR</h1>
+        </div>
+
         <form>
             <h2>WHAT DAY IS IT?</h2>
-            <input type="text" placeholder="Enter the day of the week" name="" value="userInput">
+            <input type="text" placeholder="enter day of the week">
             <input type="submit" name="" value="findGifs">
         </form>
 
         <div class="carouselContainer">
             <button type="scroll" name="leftScrollBtn"></button>
-
-            <ul>
-
-            </ul>
-
+            <ul></ul>
             <button type="scroll" name="rightScrollBtn"></button>
-
         </div>
 
         <div class="gif-info">
-            <button type="button" name="titleBtn"></button>
-            <button type="button" name="giphyBtn"></button>
-            <button type="button" name="sourceBtn"></button>
+            <button type="button" name="titleBtn" value="TITLE"></button>
+            <button type="button" name="giphyBtn" value="URL"></button>
+            <button type="button" name="ratingBtn" value="RATING"></button>
         </div>
 
         <footer>Powered by GIPHY</footer>
