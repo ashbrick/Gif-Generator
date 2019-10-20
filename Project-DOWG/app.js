@@ -60,8 +60,8 @@ $(()=>{
             //set response(data) to a variable to make it easier to handle (especially because otherwise it would be data.data which can be confusing -- the response is a bunch of gifs so setting the variable as "gifs")
             var $gifs = response.data
 
-            $('#carousel-list').empty();
-            $('#carousel-list').append("<img src=' "+$gifs[i].images.original.url+" ' style='height: 350px; width: 350px;'/>" )
+            $('#carousel-box').empty();
+            $('#carousel-box').append("<img src=' "+$gifs[i].images.original.url+" ' style='height: 350px; width: 350px;'/>" )
 
             console.log(i)
 

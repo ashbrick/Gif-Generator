@@ -1,38 +1,58 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <title>GIF Generator</title>
+<!-- Scripts -->
         <script
           src="https://code.jquery.com/jquery-3.4.1.min.js"
           integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
           crossorigin="anonymous"></script>
         <script src="app.js" charset="utf-8"></script>
+<!-- CSS -->
         <link rel="stylesheet" href="style.css">
+<!-- Fonts -->
+
+<!-- Buttons -->
+        <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
+
     </head>
     <body>
-        <div class="rainbow-text">
-            <h1>GIF GENERATOR</h1>
+        <div class="container">
+
+
+            <div class="rainbow-text">
+                <h1>RANDOM GIF GENERATOR</h1>
+            </div>
+
+            <form>
+                <h2>WHAT DAY IS IT?</h2>
+                <input id="textfield" type="text" placeholder="type here... ">
+                <input id="findGifs" type="submit" name="" value="SEARCH">
+            </form>
+
+            <div class="carouselContainer">
+                <div class="leftScrollBtn">
+                    <!-- <button type="scroll" name="leftScrollBtn"></button> -->
+                        <span class="lnr lnr-arrow-left-circle"></span>
+                </div>
+<!-- gif box -->
+                    <div id="carousel-box"></div>
+<!-- Button: right scroll -->
+                <div class="rightScrollBtn">
+                    <!-- <button type="scroll" name="rightScrollBtn"></button> -->
+                    <span class="lnr lnr-arrow-right-circle"></span>
+                </div>
+            </div>
+
+            <div class="gif-info">
+                <button id="title" type="button" name="titleBtn" value="TITLE"></button>
+                <button id="url" type="button" name="giphyBtn" value="URL"></button>
+                <button id="rating"type="button" name="ratingBtn" value="RATING"></button>
+            </div>
+
+            <footer>Powered by GIPHY</footer>
+
         </div>
-
-        <form>
-            <h2>WHAT DAY IS IT?</h2>
-            <input type="text" placeholder="enter day of the week">
-            <input id="findGifs" type="submit" name="" value="findGifs">
-        </form>
-
-        <div class="carouselContainer">
-            <button type="scroll" name="leftScrollBtn"></button>
-                <div id="carousel-list"></div>
-            <button type="scroll" name="rightScrollBtn"></button>
-        </div>
-
-        <div class="gif-info">
-            <button id="title" type="button" name="titleBtn" value="TITLE"></button>
-            <button id="url" type="button" name="giphyBtn" value="URL"></button>
-            <button id="rating"type="button" name="ratingBtn" value="RATING"></button>
-        </div>
-
-        <footer>Powered by GIPHY</footer>
     </body>
 </html>
