@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: white;
+    background-color: black;
 }
 
 .container {
@@ -64,8 +64,8 @@ h2 {
     padding: 10px 15px;
     height: 20px;
     background: white;
-    color: lightgray;
-    font-size: 10px;
+    color: lightestgray;
+    font-size: 15px;
 }
 
 #findGifs {
@@ -77,37 +77,58 @@ h2 {
     margin-right: 15%;
 }
 
-.carouselContainer {
+.carousel-container {
     display: flex;
-    flex-flow: row-wrap;
+    /* flex-flow: row-wrap; */
+    /* flex-flow: row; */
+    /* align-items: center; */
     justify-content: space-around;
-    align-items: center;
+
     width: 70%;
 }
 
 #carousel-box {
     width: 80%;
+    height: auto;
     padding: 10px;
     background: #38b6ff;
     box-sizing: border-box;
+    border-radius: 6px;
 }
 
 #carousel-box > img {
     width: 100%;
-
+    border-radius: 6px;
 }
 
 .leftScrollBtn, .rightScrollBtn {
+    align-self: center;
     cursor: pointer;
     background: #38b6ff;
     color: black;
-    padding: 10px;
-
+    padding: 10px 30px;
 }
 
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+#title, #url, #rating {
+    border: 4px solid #ff66c4;
+    cursor: ponter;
+    margin: 10px;
+    background: black;
+    color: white;
+    border-radius: 6px;
+    padding: 10px 40px;
+    font-size: 1em;
+}
 
-
-
+footer {
+    color: white;
+}
 
 
 
