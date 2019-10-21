@@ -4,9 +4,13 @@
 
 body {
     background-color: black;
+    margin: 0% auto;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
@@ -43,19 +47,20 @@ h1 {
     }
 }
 
-form {
+.form-container {
     display: flex;
     flex-flow: row-wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
 h2 {
     margin-left: 15%;
     margin-right: 5%;
-    color: black;
+    color: white;
     font-size: 3vw;
 }
+
 
 #textfield {
     border: 1px solid gray;
@@ -82,23 +87,33 @@ h2 {
     /* flex-flow: row-wrap; */
     /* flex-flow: row; */
     /* align-items: center; */
-    justify-content: space-around;
-
+    justify-content: center;
     width: 70%;
 }
 
 #carousel-box {
-    width: 80%;
-    height: auto;
-    padding: 10px;
-    background: #38b6ff;
+    display: flex;
+    width: 50%;
+    border: 10px solid #38b6ff;
+    padding: 0%;
+    background: black;
     box-sizing: border-box;
     border-radius: 6px;
+    margin: 0px 15px 0px 15px;
 }
 
+
 #carousel-box > img {
+    align-self: center;
     width: 100%;
+    border: 1px solid black;
     border-radius: 6px;
+    /* margin: 0 auto; */
+    box-sizing: border-box;
+}
+
+.lnr {
+    font-size: 5vw;
 }
 
 .leftScrollBtn, .rightScrollBtn {
@@ -106,7 +121,10 @@ h2 {
     cursor: pointer;
     background: #38b6ff;
     color: black;
-    padding: 10px 30px;
+    padding: 0.5%;
+    box-sizing: border-box;
+    border-radius: 50%;
+    text-align: center;
 }
 
 .button-container {
@@ -124,10 +142,12 @@ h2 {
     border-radius: 6px;
     padding: 10px 40px;
     font-size: 1em;
+    width: 100%;
 }
 
 footer {
     color: white;
+    text-align: flex-start;
 }
 
 

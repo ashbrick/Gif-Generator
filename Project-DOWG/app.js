@@ -7,37 +7,37 @@ $(()=>{
 
     const $userInput = $('input[type="text"]').val().toLowerCase();
 
-    const chooseDay =()=>{
-            const $monQuery = "coffee+tired+grumpy";
-            const $tueQuery = "tacos";
-            const $wedQuery = "humpday+wednesday";
-            const $thuQuery = "friday+eve";
-            const $friQuery = "dance";
-            const $satQuery = "party";
-            const $sunQuery = "rest+relax+sleep";
-
-            if($userInput == 'monday'){
-                let $userInput = $monQuery;
-            } else if ($userInput == 'tuesday'){
-                let $userInput = $tueQuery;
-            } else if ($userInput == 'wednesday'){
-                let $userInput = $wedQuery;
-            } else if ($userInput == 'thursday'){
-                let $userInput = $thuQuery;
-            } else if ($userInput == 'friday'){
-                let $userInput = $friQuery;
-            } else if ($userInput == 'saturday'){
-                let $userInput = $satQuery;
-            }else if ($userInput == 'sunday'){
-                let $userInput = $sunQuery;
-            };
-    }
+    // const chooseDay =()=>{
+    //         const $monQuery = "coffee+tired+grumpy";
+    //         const $tueQuery = "tacos";
+    //         const $wedQuery = "humpday+wednesday";
+    //         const $thuQuery = "friday+eve";
+    //         const $friQuery = "dance";
+    //         const $satQuery = "party";
+    //         const $sunQuery = "rest+relax+sleep";
+    //
+    //         if($userInput == 'monday'){
+    //             let $userInput = $monQuery;
+    //         } else if ($userInput == 'tuesday'){
+    //             let $userInput = $tueQuery;
+    //         } else if ($userInput == 'wednesday'){
+    //             let $userInput = $wedQuery;
+    //         } else if ($userInput == 'thursday'){
+    //             let $userInput = $thuQuery;
+    //         } else if ($userInput == 'friday'){
+    //             let $userInput = $friQuery;
+    //         } else if ($userInput == 'saturday'){
+    //             let $userInput = $satQuery;
+    //         }else if ($userInput == 'sunday'){
+    //             let $userInput = $sunQuery;
+    //         };
+    // }
 //===============================================
 //                  FUNCTIONS: for Buttons
 //===============================================
 
     $('#findGifs').on('click', (event) =>{
-        const $userInput = $('input[type="text"]').val().toLowerCase()
+        const $userInput = $('input[type="text"]').val().toLowerCase();
         // chooseDay();
 
 
@@ -61,12 +61,29 @@ $(()=>{
             var $gifs = response.data
 
             $('#carousel-box').empty();
-            $('#carousel-box').append("<img src=' "+$gifs[i].images.original.url+" ' style='height: 350px; width: 350px;'/>" )
+            $('#carousel-box').append("<img src=' "+$gifs[i].images.original.url+" ' style='height: 100%; width: 100%;'/>" )
 
-            console.log(i)
+                    // $('#carousel-box').append("<img src=' "+$gifs[i].images.original.url+" ' style='height: 350; width: 350px;'/>" )
+
+
+            let currentGifIndex = $gifs[i].images.original.url;
+            // let lastIndex = $gifs[i].length-1;
+
+            for(index = 0; index < $gifs[i].length; index++){
+                console.log($gifs[i].length);
+            }
+
+            console.log(currentGifIndex);
+            // console.log(lastIndex)
+
+
+
+
+
 
         });
-    }) //closing for on click function on line 24
+
+    }) //closing for initial on click function
 
 }) //DOM onload closing
 
