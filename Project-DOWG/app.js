@@ -77,14 +77,25 @@ $(()=>{
                 $('.rightScrollBtn').on('click', ()=>{
 
                     $('#carousel-box').empty();
-                    let i = Math.floor(Math.random()*25)
-                    var $gifs = response.data
+                    let i = Math.floor(Math.random()*25);
+                    var $gifs = response.data;
 
                     for(index = 0; index < $gifs.length; index++){
                     $('#carousel-box').empty();
                     $('#carousel-box').append("<img src=' " + $gifs[i].images.original.url + " ' style='height: 100%; width: 100%;'/>");}
+                });
 
-                })
+                $('.leftScrollBtn').on('click', ()=>{
+
+                    $('#carousel-box').empty();
+                    let i = Math.floor(Math.random()*25);
+                    var $gifs = response.data;
+
+                    for(index = 0; index < $gifs.length; index++){
+                        $('#carousel-box').empty();
+                        $('#carousel-box').append("<img src=' " + $gifs[i].images.original.url + " ' style='height: 100%; width: 100%;'/>");
+                    }
+                });
 
         }) //closing for Ajax request
 
