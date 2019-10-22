@@ -24,7 +24,7 @@ $(()=>{
 //===============================================
 
 /* ajaxRequest syntax learned from https://www.youtube.com/watch?v=pfdP26jPvEk */
-        var ajaxRequest = $.get(`http://api.giphy.com/v1/gifs/search?&api_key=jl0KBxJT91RtqFEeeJapgitK8gMWZDal&limit=25&q=${$userInput}`);
+        var ajaxRequest = $.get(`https://api.giphy.com/v1/gifs/search?&api_key=jl0KBxJT91RtqFEeeJapgitK8gMWZDal&limit=25&q=${$userInput}`);
 
         ajaxRequest.done((response)=>{
             // console.log("success got data", response);
