@@ -70,7 +70,7 @@ h2 {
     height: 20px;
     background: white;
     color: lightestgray;
-    font-size: 15px;
+    font-size: 3vw;
 }
 
 #findGifs {
@@ -78,7 +78,7 @@ h2 {
     color: black;
     border-radius: 6px;
     padding: 10px 40px;
-    font-size: 20px;
+    font-size: 3vw;
     margin-right: 15%;
 }
 

@@ -54,34 +54,39 @@ $(()=>{
         var ajaxRequest = $.get(`http://api.giphy.com/v1/gifs/search?&api_key=jl0KBxJT91RtqFEeeJapgitK8gMWZDal&limit=25&q=${$userInput}`);
 
         ajaxRequest.done((response)=>{
-            console.log("success got data", response); //checking to see if able to access the data
+            // console.log("success got data", response); //checking to see if able to access the data
 
+            //grab a random object from the data array
             let i = Math.floor(Math.random()*25)
-            //set response(data) to a variable to make it easier to handle (especially because otherwise it would be data.data which can be confusing -- the response is a bunch of gifs so setting the variable as "gifs")
             var $gifs = response.data
 
-            $('#carousel-box').empty();
-            $('#carousel-box').append("<img src=' "+$gifs[i].images.original.url+" ' style='height: 100%; width: 100%;'/>" )
+            //once I can loop through the randomized array, I need to access each object so that I can move forward and back with the left and right scroll Buttons to access another random image
 
-                    // $('#carousel-box').append("<img src=' "+$gifs[i].images.original.url+" ' style='height: 350; width: 350px;'/>" )
+            for(index = 0; index < $gifs.length; index++){
+            // console.log($gifs.length);
 
+                $('#carousel-box').empty();//empty the container
 
-            let currentGifIndex = $gifs[i].images.original.url;
-            // let lastIndex = $gifs[i].length-1;
+                $('#carousel-box').append("<img src=' " + $gifs[i].images.original.url + " ' style='height: 100%; width: 100%;'/>");//append the random gif to the container
 
-            for(index = 0; index < $gifs[i].length; index++){
-                console.log($gifs[i].length);
             }
 
-            console.log(currentGifIndex);
-            // console.log(lastIndex)
+                // console.log(gifArray);
+                // console.log($gifs)
 
+                $('.rightScrollBtn').on('click', ()=>{
 
+                    $('#carousel-box').empty();
+                    let i = Math.floor(Math.random()*25)
+                    var $gifs = response.data
 
+                    for(index = 0; index < $gifs.length; index++){
+                    $('#carousel-box').empty();
+                    $('#carousel-box').append("<img src=' " + $gifs[i].images.original.url + " ' style='height: 100%; width: 100%;'/>");}
 
+                })
 
-
-        });
+        }) //closing for Ajax request
 
     }) //closing for initial on click function
 
@@ -269,6 +274,65 @@ const randNumGen = () =>{
 
     Ended up not needing it to filter through properties since I'm randomly picking 1 gif
 
+
+
+
+////////////////////////////// Right scroll button not working
+// $('.rightScrollBtn').on('click', ()=>{
+//     let scrollIndex = [{}];
+//     let highestIndex = $gifs.length-1;
+//     let currentGifIndex = $gifs[i].images.original.url;
+
+    // scrollIndex.push(currentGifIndex);
+
+        // if(currentGifIndex < $gifs.length){
+        //     $('#carousel-box').append(highestIndex);
+        // } else {
+        //     for(let j=0; j < $gifs.length; j++){
+        //         $('#carousel-box').append(highestIndex);
+        //     };
+    // }
+// })
+
+
+//Tried to use corgi carousel and it wasn't working because I already wrote code to do this for me ....
+//Dan helped by pointing that out to me.
+/////////// everything works until here////////// -- not going to use this code anymore
+
+                //
+                // // let currentGifIndex = gifArray[1].images.original.url;
+                // // let currentGifIndex = gifArray[1].images.original.url;
+                // let currentGifIndex = gifArray;
+                // console.log(gifArray[1])
+                //
+                // // console.log(gifArray[1].images.original.url) //cannot read original
+                // console.log(currentGifIndex);
+                //
+                //
+                // // let imgSrc = "<img src=' " + currentGifIndex + " ' style='height: 100%; width: 100%;'/>";
+                // let highestIndex = gifArray.length-1;
+                // console.log(highestIndex)
+                //
+                //     $('.rightScrollBtn').on('click', ()=>{
+                //
+                //         // let currentGifIndex = gifArray[j].images.original.url;
+                //
+                //         $('#carousel-box').children().eq(currentGifIndex).css('display', 'none');
+                //             if(currentGifIndex < highestIndex){
+                //                 currentGifIndex++;
+                //             } else {
+                //                 currentGifIndex = 0;
+                //             }
+                //
+                //         $('#carousel-box').children().eq(currentGifIndex).css('display', 'block');
+                //
+                //         })
+
+
+
+
+
+
 */
 
 
@@ -301,4 +365,25 @@ const randNumGen = () =>{
         -I switched my syntax to see if it would help me to understand it better. After watching a YouTube video about the different syntax and how it was used it helped!
 
         -I also wasn't calling the data correctly. So instead of referring to the gifs as 'img src= data.data[i].embed_url', I went deeper into the API and grabbed a different property buried within $gifs[i].images.original and got it to work FINALLY!
+
+
+////////////////////////////// Trying to figure out the carousel
+
+let currentGifIndex = $gifs[i].images.original.url;
+// let lastIndex = $gifs[i].length-1;
+
+// for(index = 0; index < $gifs.length; index++){
+//     console.log($gifs.length);
+// }
+
+console.log(currentGifIndex);
+// console.log(lastIndex)
+
+//currently grabbing a random image from an array of 25 items and appending to the carousel box
+//i need to be able to access all 25 items so that I can loop through them
+console.log(response.data[i].length) //returns undefined
+// console.log($gifs[i]) returns the object
+console.log($gifs) //yay! This works to get the array
+console.log($gifs.length)
+
 */
