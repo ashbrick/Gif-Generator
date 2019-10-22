@@ -7,31 +7,6 @@ $(()=>{
 
     const $userInput = $('input[type="text"]').val().toLowerCase();
 
-    // const chooseDay =()=>{
-    //         const $monQuery = "coffee+tired+grumpy";
-    //         const $tueQuery = "tacos";
-    //         const $wedQuery = "humpday+wednesday";
-    //         const $thuQuery = "friday+eve";
-    //         const $friQuery = "dance";
-    //         const $satQuery = "party";
-    //         const $sunQuery = "rest+relax+sleep";
-    //
-    //         if($userInput == 'monday'){
-    //             let $userInput = $monQuery;
-    //         } else if ($userInput == 'tuesday'){
-    //             let $userInput = $tueQuery;
-    //         } else if ($userInput == 'wednesday'){
-    //             let $userInput = $wedQuery;
-    //         } else if ($userInput == 'thursday'){
-    //             let $userInput = $thuQuery;
-    //         } else if ($userInput == 'friday'){
-    //             let $userInput = $friQuery;
-    //         } else if ($userInput == 'saturday'){
-    //             let $userInput = $satQuery;
-    //         }else if ($userInput == 'sunday'){
-    //             let $userInput = $sunQuery;
-    //         };
-    // }
 //===============================================
 //                  FUNCTIONS: for Buttons
 //===============================================
@@ -71,9 +46,6 @@ $(()=>{
 
             }
 
-                // console.log(gifArray);
-                // console.log($gifs)
-
                 $('.rightScrollBtn').on('click', ()=>{
 
                     $('#carousel-box').empty();
@@ -96,6 +68,8 @@ $(()=>{
                         $('#carousel-box').append("<img src=' " + $gifs[i].images.original.url + " ' style='height: 100%; width: 100%;'/>");
                     }
                 });
+
+
 
         }) //closing for Ajax request
 
@@ -267,6 +241,35 @@ Sunday: rest, sleep, relax
                 $userInput;
         };
     }
+
+/////////////////////////////// created a chooseDay function to help me filter through
+keywords but I couldn't get it to work
+
+// const chooseDay =()=>{
+//         const $monQuery = "coffee+tired+grumpy";
+//         const $tueQuery = "tacos";
+//         const $wedQuery = "humpday+wednesday";
+//         const $thuQuery = "friday+eve";
+//         const $friQuery = "dance";
+//         const $satQuery = "party";
+//         const $sunQuery = "rest+relax+sleep";
+//
+//         if($userInput == 'monday'){
+//             let $userInput = $monQuery;
+//         } else if ($userInput == 'tuesday'){
+//             let $userInput = $tueQuery;
+//         } else if ($userInput == 'wednesday'){
+//             let $userInput = $wedQuery;
+//         } else if ($userInput == 'thursday'){
+//             let $userInput = $thuQuery;
+//         } else if ($userInput == 'friday'){
+//             let $userInput = $friQuery;
+//         } else if ($userInput == 'saturday'){
+//             let $userInput = $satQuery;
+//         }else if ($userInput == 'sunday'){
+//             let $userInput = $sunQuery;
+//         };
+// }
 
 /////////////////////////////// Explanation for removing my raondom num generator
 

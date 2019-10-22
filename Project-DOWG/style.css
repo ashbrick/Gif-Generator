@@ -7,19 +7,19 @@ body {
     margin: 0% auto;
 }
 
-.container {
+/* .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 
-h1 {
-    font-size: 4vw;
-    padding:
-}
-
-.rainbow-text {
-    text-align: center;
+.rainbow-container{
+    display: flex;
+    align-items: center;
+    margin: 0% auto;
+    font-size: 2.5vw;
+    margin-left: 15%;
+    margin-right: 15%;
 
     background: linear-gradient(to left, #ff5757, #ff66c4, #cb6ce6, #8c52ff, #5271ff, #38b6ff, #5ce1e6, #7ed957, #c9e265, #ffde59, #ffbd59, #ff914d,
     /*repeat second time*/
@@ -47,30 +47,37 @@ h1 {
     }
 }
 
+h1 {
+    align-self: center;
+    margin-left: 2%;
+}
+
 .form-container {
     display: flex;
-    flex-flow: row-wrap;
-    justify-content: center;
+    flex-direction: row;
+    flex-flow: nowrap;
+    justify-content: space-around;
     align-items: center;
 }
 
 h2 {
-    margin-left: 15%;
-    margin-right: 5%;
+    margin-right: -20%;
     color: white;
     font-size: 3vw;
 }
 
 
 #textfield {
+    align-self: center;
     border: 1px solid gray;
     border-radius: 6px;
-    margin-left: -50px;
+    /* margin-left: -50px; */
+    margin-right: 10px;
     padding: 10px 15px;
-    height: 20px;
+    /* height: 15px; */
     background: white;
-    color: lightestgray;
-    font-size: 3vw;
+    color: gray;
+    font-size: 1.5vw;
 }
 
 #findGifs {
@@ -78,22 +85,25 @@ h2 {
     color: black;
     border-radius: 6px;
     padding: 10px 40px;
-    font-size: 3vw;
-    margin-right: 15%;
+    font-size: 1.5vw;
+    /* margin-left: 5px; */
+
 }
 
 .carousel-container {
     display: flex;
-    /* flex-flow: row-wrap; */
-    /* flex-flow: row; */
-    /* align-items: center; */
     justify-content: center;
+    /* align-content: center; */
+    /* flex-flow: nowrap; */
+    flex-flow: row;
+    align-items: center;
+    margin-left: 15%;
+    margin-top: 10px;
     width: 70%;
 }
 
 #carousel-box {
-    display: flex;
-    width: 50%;
+    width: 70%;
     border: 10px solid #38b6ff;
     padding: 0%;
     background: black;
@@ -106,6 +116,7 @@ h2 {
 #carousel-box > img {
     align-self: center;
     width: 100%;
+    height: auto;
     border: 1px solid black;
     border-radius: 6px;
     /* margin: 0 auto; */
@@ -127,11 +138,15 @@ h2 {
     text-align: center;
 }
 
-.button-container {
+.bottom-button-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    justify-content: center;
+    flex-flow: column;
+    margin: 25px;
+    margin-left: 40%;
+    margin-right: 40%;
+
 }
 #title, #url, #rating {
     border: 4px solid #ff66c4;
@@ -142,12 +157,38 @@ h2 {
     border-radius: 6px;
     padding: 10px 40px;
     font-size: 1em;
+    text-align: center;
     width: 100%;
 }
 
 footer {
-    color: white;
     text-align: flex-start;
+    font-size: 2.5vw;
+    background: linear-gradient(to left, #ff5757, #ff66c4, #cb6ce6, #8c52ff, #5271ff, #38b6ff, #5ce1e6, #7ed957, #c9e265, #ffde59, #ffbd59, #ff914d,
+    /*repeat second time*/
+    #ff5757, #ff66c4, #cb6ce6, #8c52ff, #5271ff, #38b6ff, #5ce1e6, #7ed957, #c9e265, #ffde59, #ffbd59, #ff914d,
+    /*add first color again for seamless transition, no jumping*/
+    #ff5757)
+    ;
+
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 100%;
+    animation: rainbow 6s ease-in-out infinite;
+    animation-iteration-count: infinite;
+    /* animation-duration: 1s; */
+}
+
+@keyframes colorchange {
+    0%, 100% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+}
 }
 
 
