@@ -8,18 +8,16 @@ $(()=>{
     const $userInput = $('input[type="text"]').val().toLowerCase();
 
 //===============================================
-//                  FUNCTIONS: for Buttons
+//                Search Button
 //===============================================
 
     $('#findGifs').on('click', (event) =>{
         const $userInput = $('input[type="text"]').val().toLowerCase();
-        // chooseDay();
 
 
         // console.log($userInput)
         event.preventDefault();
         $('form').trigger('reset');
-
 
 //===============================================
 //                  AJAX & DATA
@@ -29,47 +27,70 @@ $(()=>{
         var ajaxRequest = $.get(`http://api.giphy.com/v1/gifs/search?&api_key=jl0KBxJT91RtqFEeeJapgitK8gMWZDal&limit=25&q=${$userInput}`);
 
         ajaxRequest.done((response)=>{
-            // console.log("success got data", response); //checking to see if able to access the data
+            // console.log("success got data", response);
 
             //grab a random object from the data array
             let i = Math.floor(Math.random()*25)
-            var $gifs = response.data
+            var $gifs = response.data //API data
 
-            //once I can loop through the randomized array, I need to access each object so that I can move forward and back with the left and right scroll Buttons to access another random image
-
+            //loop through array of random gifs
             for(index = 0; index < $gifs.length; index++){
             // console.log($gifs.length);
 
-                $('#carousel-box').empty();//empty the container
+                $('#carousel-box').empty();//empties the carousel for the next gif
 
-                $('#carousel-box').append("<img src=' " + $gifs[i].images.original.url + " ' style='height: 100%; width: 100%;'/>");//append the random gif to the container
-
+                $('#carousel-box').append("<img src=' " + $gifs[i].images.original.url + " ' style='height: 100%; width: 100%;'/>");
             }
 
-                $('.rightScrollBtn').on('click', ()=>{
+//===============================================
+//      Left & Right Scroll , and URL Buttons
+//===============================================
 
+            $('.rightScrollBtn').on('click', ()=>{
+                $('#carousel-box').empty();
+                let i = Math.floor(Math.random()*25);
+                var $gifs = response.data;
+
+                for(index = 0; index < $gifs.length; index++){
+                $('#carousel-box').empty();
+                $('#carousel-box').append("<img src=' " + $gifs[i].images.original.url + " ' style='height: 100%; width: 100%;'/>");
+                }
+            });//right scroll event handler close
+
+///////////////////////////////
+
+            $('.leftScrollBtn').on('click', ()=>{
+
+                $('#carousel-box').empty();
+                let i = Math.floor(Math.random()*25);
+                var $gifs = response.data;
+
+                for(index = 0; index < $gifs.length; index++){
                     $('#carousel-box').empty();
-                    let i = Math.floor(Math.random()*25);
-                    var $gifs = response.data;
+                    $('#carousel-box').append("<img src=' " + $gifs[i].images.original.url + " ' style='height: 100%; width: 100%;'/>");
+                }
+            }); //left scroll event handler close
 
-                    for(index = 0; index < $gifs.length; index++){
-                    $('#carousel-box').empty();
-                    $('#carousel-box').append("<img src=' " + $gifs[i].images.original.url + " ' style='height: 100%; width: 100%;'/>");}
-                });
+            console.log($gifs[i].url) //logs url of current gif
 
-                $('.leftScrollBtn').on('click', ()=>{
+//////////////////////////////
 
-                    $('#carousel-box').empty();
-                    let i = Math.floor(Math.random()*25);
-                    var $gifs = response.data;
+            const buttonClick =()=>{
+            $('#url').one('click', (event)=>{
+                const $urlLink = $('<p>').text($gifs[i].url).attr('class', 'getUrl')
+                $('.bottom-button-container').append($urlLink)
+                .css('color', 'white');
 
-                    for(index = 0; index < $gifs.length; index++){
-                        $('#carousel-box').empty();
-                        $('#carousel-box').append("<img src=' " + $gifs[i].images.original.url + " ' style='height: 100%; width: 100%;'/>");
-                    }
-                });
+                    //hides the url on click
+                    $(event.target).one('click',()=>{
+                        $urlLink.remove();
+                        buttonClick();
+                    })
+                })
+            }
 
-
+            //activates the URL button so that when you click it shows URL
+            buttonClick();
 
         }) //closing for Ajax request
 
@@ -313,38 +334,91 @@ const randNumGen = () =>{
 //Dan helped by pointing that out to me.
 /////////// everything works until here////////// -- not going to use this code anymore
 
-                //
-                // // let currentGifIndex = gifArray[1].images.original.url;
-                // // let currentGifIndex = gifArray[1].images.original.url;
-                // let currentGifIndex = gifArray;
-                // console.log(gifArray[1])
-                //
-                // // console.log(gifArray[1].images.original.url) //cannot read original
-                // console.log(currentGifIndex);
-                //
-                //
-                // // let imgSrc = "<img src=' " + currentGifIndex + " ' style='height: 100%; width: 100%;'/>";
-                // let highestIndex = gifArray.length-1;
-                // console.log(highestIndex)
-                //
-                //     $('.rightScrollBtn').on('click', ()=>{
-                //
-                //         // let currentGifIndex = gifArray[j].images.original.url;
-                //
-                //         $('#carousel-box').children().eq(currentGifIndex).css('display', 'none');
-                //             if(currentGifIndex < highestIndex){
-                //                 currentGifIndex++;
-                //             } else {
-                //                 currentGifIndex = 0;
-                //             }
-                //
-                //         $('#carousel-box').children().eq(currentGifIndex).css('display', 'block');
-                //
-                //         })
+
+                // let currentGifIndex = gifArray[1].images.original.url;
+                // let currentGifIndex = gifArray[1].images.original.url;
+                let currentGifIndex = gifArray;
+                console.log(gifArray[1])
+
+                // console.log(gifArray[1].images.original.url) //cannot read original
+                console.log(currentGifIndex);
 
 
+                // let imgSrc = "<img src=' " + currentGifIndex + " ' style='height: 100%; width: 100%;'/>";
+                let highestIndex = gifArray.length-1;
+                console.log(highestIndex)
+
+                    $('.rightScrollBtn').on('click', ()=>{
+
+                        // let currentGifIndex = gifArray[j].images.original.url;
+
+                        $('#carousel-box').children().eq(currentGifIndex).css('display', 'none');
+                            if(currentGifIndex < highestIndex){
+                                currentGifIndex++;
+                            } else {
+                                currentGifIndex = 0;
+                            }
+
+                        $('#carousel-box').children().eq(currentGifIndex).css('display', 'block');
+
+                        })
 
 
+/////////////// trying to create toggle function for button click to reveal title of gif
+                $('#title').on('click', ()=>{
+                    $('.title').toggle(function(){
+
+                        $('#title').append($('<p>')
+                        .attr('class', 'titleText')
+                        .text($gifs[i].title))
+                        .css('display', 'inline-block')
+                        ($('.titleText')).show();
+                    },
+                        function(){
+                            $('.titleText').hide();
+                    }); //title toggle closing
+                }) //bottom button title toggle close
+
+//////////  trying to toggle the title text on button click
+                $('#title').on('click', ()=>{
+                    const $titleP = $('<p>').text($gifs[i].title)
+                    $('#title').append($titleP);
+                    $('#title').on('click',()=>{
+                        $(event.target).trigger('reset')
+                    })
+                })
+
+
+//////////////////////////// URL Button click
+Note: I wanted the URL button to toggle between showing the url and hiding it but it kept repeating or making other buttons disappear. So I finally figured out that I had to create another event handler function inside of my initial event handler, and pass the parameter event in order for it to be recognized (I had forgotten to give the first one a parameter)... Then to keep it from repeating I switched the "on.(click)" to one.click so that it would only happen once instead of causing a repetition of the url.
+
+            const buttonClick =()=>{
+            $('#url').one('click', (event)=>{
+                const $urlLink = $('<p>').text($gifs[i].url).attr('class', 'getUrl')
+                $('.bottom-button-container').append($urlLink)
+                .css('color', 'white');
+                // event.stopImmediatePropagation();
+                // event.preventDefault();
+                // $(event.target).trigger('reset')
+
+
+                $(event.target).one('click',()=>{ // doesn't remove url
+
+                    $urlLink.remove();
+                    buttonClick();
+                })
+
+
+                // $('#url').on('click', ()=>{ // doesn't remove url
+                //     $('getUrl').remove()
+                // })
+
+                // $('.getUrl').remove(); // keeps button from working
+            })
+            }
+
+            buttonClick();
+            // $('#url').on('click', ())
 
 
 */
